@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>店舗経営者の秘密の部屋 | Secret Lounge for Owners</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'base': '#FFFFFF',
+                        'text': '#4A4A4A',
+                        'accent': '#C5A086',
+                        'accent-gold': '#D4AF37',
+                        'nuance': '#FDFBF9',
+                    },
+                    fontFamily: {
+                        'cormorant': ['Cormorant Garamond', 'serif'],
+                        'mincho': ['Shippori Mincho', 'serif'],
+                        'gothic': ['Zen Kaku Gothic New', 'sans-serif'],
+                    },
+                    backdropBlur: {
+                        'xs': '2px',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            font-family: 'Zen Kaku Gothic New', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-mincho {
+            font-family: 'Shippori Mincho', serif;
+        }
+
+        .font-cormorant {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        body {
+            background-color: #FFFFFF;
+            color: #4A4A4A;
+        }
+
+        /* Glassmorphism - Improved readability */
+        .glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        /* Background Typography - Reduced for readability */
+        .bg-text {
+            position: absolute;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 10rem;
+            font-weight: 300;
+            color: rgba(197, 160, 134, 0.015);
+            pointer-events: none;
+            user-select: none;
+            z-index: 0;
+        }
+
+        /* Animated Orbs - Reduced intensity */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.05;
+            animation: float-orb 20s ease-in-out infinite;
+        }
+
+        @keyframes float-orb {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(50px, -80px) scale(1.1);
+            }
+
+            66% {
+                transform: translate(-30px, 60px) scale(0.9);
+            }
+        }
+
+        /* Fade In Up Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Button Shine Effect */
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-shine::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn-shine:hover::before {
+            left: 100%;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            background: linear-gradient(135deg, #C5A086 0%, #D4AF37 100%);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(197, 160, 134, 0.3);
+        }
+
+        .cta-button-outline {
+            background: transparent;
+            border: 1px solid #FFFFFF;
+            color: #FFFFFF;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button-outline:hover {
+            background: #FFFFFF;
+            color: #C5A086;
+        }
+
+        /* Image filters */
+        .img-grayscale {
+            filter: grayscale(100%);
+            transition: filter 0.5s ease;
+        }
+
+        .img-grayscale:hover {
+            filter: grayscale(0%);
+        }
+
+        /* Divider */
+        .divider-thin {
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, #C5A086, transparent);
+        }
+
+        /* Scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Typing Animation */
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        .typing-text {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 2s steps(40) forwards;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="text-xl font-mincho font-medium text-text tracking-wider">
+                Secret Lounge
+            </div>
+            <nav class="hidden md:flex items-center gap-10">
+                <a href="#concept" class="text-sm text-text hover:text-accent transition-colors">
+                    <span class="font-cormorant text-base">Concept</span>
+                    <span class="text-xs ml-1">想い</span>
+                </a>
+                <a href="#speakers" class="text-sm text-text hover:text-accent transition-colors">
+                    <span class="font-cormorant text-base">Speakers</span>
+                    <span class="text-xs ml-1">講師</span>
+                </a>
+                <a href="#access" class="text-sm text-text hover:text-accent transition-colors">
+                    <span class="font-cormorant text-base">Access</span>
+                    <span class="text-xs ml-1">会場</span>
+                </a>
+            </nav>
+            <a href="#reservation" class="cta-button text-white px-6 py-2 rounded-full text-sm font-medium">
+                Reserve
+            </a>
+        </div>
+    </header>
+
+    <!-- First View -->
+    <section class="min-h-screen flex items-center justify-center px-6 relative overflow-hidden pt-24">
+        <!-- Animated Orbs -->
+        <div class="orb w-96 h-96 top-20 left-10" style="background: radial-gradient(circle, #C5A086, #FDFBF9);"></div>
+        <div class="orb w-80 h-80 bottom-20 right-10"
+            style="background: radial-gradient(circle, #D4AF37, #FDFBF9); animation-delay: -5s;"></div>
+
+        <div class="max-w-5xl mx-auto text-center relative z-10 fade-in-up">
+            <!-- English Catch -->
+            <p class="font-cormorant italic text-4xl md:text-5xl text-accent mb-8 tracking-wide">
+                Secret Lounge for Owners
+            </p>
+
+            <!-- Main Title -->
+            <h1 class="text-4xl md:text-6xl font-mincho font-bold mb-8 leading-tight">
+                店舗経営者の秘密の部屋
+            </h1>
+
+            <!-- Catch Copy -->
+            <p class="text-lg md:text-xl leading-relaxed mb-6 max-w-3xl mx-auto">
+                「採用のミスマッチ」も「人間関係の摩擦」も、<br class="hidden md:block">すべて予見できるとしたら？
+            </p>
+            <p class="text-base text-gray-600 mb-12 max-w-3xl mx-auto">
+                合計11店舗を運営する二人が辿り着いた、感情ですり減らない経営の正解。
+            </p>
+
+            <!-- Instructor Photos -->
+            <div class="flex justify-center items-center gap-8 mb-12">
+                <div class="relative">
+                    <div
+                        class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-accent shadow-xl">
+                        <img src="yui_imai.jpg" alt="今井ゆい" class="w-full h-full object-cover">
+                    </div>
+                    <div
+                        class="absolute -bottom-2 -right-2 w-8 h-8 bg-accent rounded-full flex items-center justify-center text-white text-xs">
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div
+                        class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-accent shadow-xl">
+                        <img src="kaori_kataigi.jpg" alt="片伊木香織" class="w-full h-full object-cover">
+                    </div>
+                    <div
+                        class="absolute -bottom-2 -right-2 w-8 h-8 bg-accent rounded-full flex items-center justify-center text-white text-xs">
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Date Badge -->
+            <div class="text-center mb-8">
+                <span class="inline-block px-6 py-3 border border-accent text-text rounded-full text-sm font-medium">
+                    <i class="fas fa-calendar-alt mr-2 text-accent"></i>
+                    2026.03.31 (Mon) @ TOKYO
+                </span>
+            </div>
+
+            <!-- CTA -->
+            <a href="#reservation"
+                class="cta-button btn-shine inline-block text-white px-12 py-4 rounded-full font-medium text-lg">
+                席を確保する <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Empathy Section - CONCEPT -->
+    <section id="concept" class="py-32 px-6 bg-nuance relative overflow-hidden">
+
+
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20 fade-in-up">
+                <p class="font-cormorant italic text-3xl text-accent mb-6">The Pain You Face</p>
+                <h2 class="text-3xl md:text-4xl font-mincho font-bold mb-8">
+                    ここは、従業員には聞かせられない<br class="md:hidden">「経営者の本音」を話す場所。
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-0 mb-16 max-w-5xl mx-auto">
+                <div class="text-center px-6 py-12 fade-in-up border-r border-gray-200 last:border-r-0">
+                    <div class="text-6xl font-cormorant italic text-accent mb-4">"</div>
+                    <p class="text-lg leading-relaxed">なぜ、何度言っても<br>伝わらないのだろう？</p>
+                </div>
+
+                <div class="text-center px-6 py-12 fade-in-up border-r border-gray-200 last:border-r-0">
+                    <div class="text-6xl font-cormorant italic text-accent mb-4">"</div>
+                    <p class="text-lg leading-relaxed">良かれと思ってやったことが、<br>裏目に出る</p>
+                </div>
+
+                <div class="text-center px-6 py-12 fade-in-up">
+                    <div class="text-6xl font-cormorant italic text-accent mb-4">"</div>
+                    <p class="text-lg leading-relaxed">結局、自分一人でやった方が<br>早いのではないか…</p>
+                </div>
+            </div>
+
+            <div class="max-w-3xl mx-auto text-center glass-card rounded-3xl p-12 fade-in-up">
+                <p class="text-xl leading-relaxed mb-4">
+                    スタッフの採用や組織づくりで、同じ場所でつまずき続けていませんか？<br>
+                    それは、あなたの努力不足でも、スタッフの能力不足でもありません。
+                </p>
+                <p class="text-2xl font-mincho font-bold text-accent">
+                    ただ、「性質（統計学）」と「構造（仕組み）」の<br>ボタンが掛け違っているだけなのです。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section - METHOD -->
+    <section class="py-32 px-6 relative overflow-hidden">
+
+
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 fade-in-up">
+                <p class="font-cormorant italic text-3xl text-accent mb-6">The Answer</p>
+                <h2 class="text-3xl md:text-4xl font-mincho font-bold mb-8">
+                    感覚に頼らない。感情で疲弊しない。
+                </h2>
+                <p class="text-lg text-gray-600">科学と仕組みで、組織の悩みを根本から解決する</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Method 1 -->
+                <div class="relative fade-in-up">
+                    <div class="h-96 rounded-3xl overflow-hidden mb-6">
+                        <img src="animal_fortune.jpg" alt="動物占い" class="w-full h-full object-cover">
+                    </div>
+                    <div class="glass-card rounded-3xl p-10 -mt-20 relative z-10 mx-6">
+                        <div class="w-14 h-14 bg-accent/20 rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fas fa-chart-line text-2xl text-accent"></i>
+                        </div>
+                        <h3 class="text-2xl font-mincho font-bold mb-3">統計学で「動物占い」を読み解く</h3>
+                        <p class="text-sm text-accent mb-4">担当：今井ゆい</p>
+                        <p class="text-gray-700 leading-relaxed">
+                            採用のミスマッチを防ぐロジック。性質を理解すれば、相性の悪い組み合わせは事前に回避できます。感覚ではなく、データで人を見る。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Method 2 -->
+                <div class="relative fade-in-up">
+                    <div class="h-96 rounded-3xl overflow-hidden mb-6">
+                        <img src="system_independence.jpg" alt="引き算の経営" class="w-full h-full object-cover">
+                    </div>
+                    <div class="glass-card rounded-3xl p-10 -mt-20 relative z-10 mx-6">
+                        <div class="w-14 h-14 bg-accent/20 rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fas fa-cogs text-2xl text-accent"></i>
+                        </div>
+                        <h3 class="text-2xl font-mincho font-bold mb-3">仕組み化で「依存」をなくす</h3>
+                        <p class="text-sm text-accent mb-4">担当：片伊木香織</p>
+                        <p class="text-gray-700 leading-relaxed">
+                            現場に依存しない引き算の経営。シンプルな戦略で、誰でも回る組織を作る。「あの人しかできない」から解放される設計図。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speakers Section - PROFESSIONAL -->
+    <section id="speakers" class="py-32 px-6 bg-nuance relative overflow-hidden">
+
+
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20 fade-in-up">
+                <p class="font-cormorant italic text-3xl text-accent mb-6">Who We Are</p>
+                <h2 class="text-3xl md:text-4xl font-mincho font-bold">講師紹介</h2>
+            </div>
+
+            <!-- Speaker 1 -->
+            <div class="grid md:grid-cols-2 gap-16 items-center mb-24 fade-in-up">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-accent/10 rounded-3xl transform translate-x-6 translate-y-6"></div>
+                    <img src="yui_imai.jpg" alt="今井ゆい" class="rounded-3xl w-full shadow-2xl relative z-10">
+                    <div class="absolute -bottom-4 -right-4 font-cormorant italic text-8xl text-accent/10 z-0">
+                        Yui
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-4xl font-mincho font-bold mb-2">今井ゆい</h3>
+                    <p class="text-accent font-medium mb-6 text-lg">株式会社ROUÉ 代表</p>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        トータルビューティーサロン、ネイルサロン、FC展開など多角経営を手掛ける。統計学を活用した採用と組織づくりで、スタッフ間のミスマッチを最小化。<span
+                            class="font-bold">合計7店舗</span>を運営し、「感情に振り回されない経営」を実践中。
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-store text-accent"></i>
+                        <span class="text-sm">7 Stores Management</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Speaker 2 -->
+            <div class="grid md:grid-cols-2 gap-16 items-center fade-in-up">
+                <div class="order-2 md:order-1">
+                    <h3 class="text-4xl font-mincho font-bold mb-2">片伊木香織</h3>
+                    <p class="text-accent font-medium mb-6 text-lg">株式会社mug / 合同会社io 代表</p>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        アイラッシュサロン、よもぎ蒸しサロンを運営。「引き算の経営」をテーマに、シンプルな仕組みで現場に依存しない組織設計を実現。<span
+                            class="font-bold">合計4店舗</span>を展開し、経営者の時間的自由を追求している。
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-store text-accent"></i>
+                        <span class="text-sm">4 Stores Management</span>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2 relative">
+                    <div class="absolute inset-0 bg-accent/10 rounded-3xl transform -translate-x-6 translate-y-6"></div>
+                    <img src="kaori_kataigi.jpg" alt="片伊木香織" class="rounded-3xl w-full shadow-2xl relative z-10">
+                    <div class="absolute -bottom-4 -left-4 font-cormorant italic text-8xl text-accent/10 z-0">
+                        Kaori
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real Event Value - INVITATION -->
+    <section class="py-32 px-6 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto">
+            <div class="border-2 border-accent rounded-3xl p-12 md:p-16 glass-card fade-in-up">
+                <div class="text-center mb-12">
+                    <i class="fas fa-champagne-glasses text-6xl text-accent mb-6"></i>
+                    <p class="font-cormorant italic text-3xl text-accent mb-6">Special Invitation</p>
+                    <h2 class="text-3xl md:text-4xl font-mincho font-bold mb-8">
+                        画面越しでは話せない、<br class="md:hidden">ここだけの話を。
+                    </h2>
+                </div>
+
+                <p class="text-xl leading-relaxed text-center mb-12 max-w-3xl mx-auto">
+                    このイベントは、セミナーだけで終わりません。<br>
+                    懇親会では、本音の相談ができる仲間と出会えます。<br>
+                    同じ悩みを持つ経営者同士だからこそ、深い話ができる。<br>
+                    <span class="font-bold text-accent">ここでしか話せない「リアルな経営の裏側」を共有し合いましょう。</span>
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                    <div class="text-center p-6 border border-gray-200 rounded-2xl">
+                        <i class="fas fa-users text-3xl text-accent mb-4"></i>
+                        <h4 class="font-bold text-lg mb-2">仲間作り</h4>
+                        <p class="text-sm text-gray-600">孤独な経営から、支え合う仲間へ</p>
+                    </div>
+                    <div class="text-center p-6 border border-gray-200 rounded-2xl">
+                        <i class="fas fa-comments text-3xl text-accent mb-4"></i>
+                        <h4 class="font-bold text-lg mb-2">本音の相談</h4>
+                        <p class="text-sm text-gray-600">SNSでは書けない、リアルな悩みを</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Networking Section - LOUNGE TIME -->
+    <section class="py-32 px-6 bg-nuance relative overflow-hidden">
+        <div class="absolute inset-0 opacity-[0.02]">
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1920&h=1080&fit=crop" alt="背景"
+                class="w-full h-full object-cover">
+        </div>
+
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-16 fade-in-up">
+                <p class="font-cormorant italic text-3xl text-accent mb-6">Deep Connection & Relax</p>
+                <h2 class="text-3xl md:text-4xl font-mincho font-bold mb-8">
+                    深い「繋がり」と「相談」の時間。
+                </h2>
+            </div>
+
+            <!-- Networking Image -->
+            <div class="mb-12 fade-in-up">
+                <div class="rounded-3xl overflow-hidden shadow-2xl">
+                    <img src="networking.jpg" alt="懇親会" class="w-full h-auto">
+                </div>
+            </div>
+
+            <div class="glass-card rounded-3xl p-12 md:p-16 mb-12 fade-in-up">
+                <p class="text-lg leading-relaxed text-center mb-8">
+                    経営者は孤独です。従業員には言えない悩み、家族には分かってもらえない重圧。<br>
+                    「秘密の部屋」の懇親会は、そんな荷物を下ろせる場所です。<br>
+                    美味しい食事を囲みながら、同じ志を持つ仲間と繋がり、講師に直接相談する。<br>
+                    <span class="font-bold text-accent">その「対話」の中にこそ、あなたの店舗を変えるヒントが隠れています。</span>
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-8 mt-12">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-gem text-4xl text-accent"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">経営者同士の深い繋がり</h4>
+                        <p class="text-sm text-gray-600">同じ悩みを持つ店舗経営者との出会い・情報交換</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-star text-4xl text-accent"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">講師二人への直接相談</h4>
+                        <p class="text-sm text-gray-600">セミナーでは聞けなかった個別の課題をフィードバック</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-sparkles text-4xl text-accent"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">明日からの活力</h4>
+                        <p class="text-sm text-gray-600">ポジティブな空間で前向きなエネルギーを</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Access Section - INFORMATION -->
+    <section id="access" class="py-32 px-6 relative overflow-hidden">
+
+
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-20 fade-in-up">
+                <p class="font-cormorant italic text-3xl text-accent mb-6">Event Details</p>
+                <h2 class="text-3xl md:text-4xl font-mincho font-bold">開催概要</h2>
+            </div>
+
+            <div class="glass-card rounded-3xl p-12 md:p-16 fade-in-up">
+                <div class="grid md:grid-cols-2 gap-12 mb-12">
+                    <div class="flex items-start gap-6">
+                        <div class="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-calendar text-2xl text-accent"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2">Date</h4>
+                            <p class="text-gray-700">2026年3月31日（月）</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-6">
+                        <div class="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-user-friends text-2xl text-accent"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2">Capacity</h4>
+                            <p class="text-gray-700"><span class="text-3xl font-bold text-accent">50</span> 名限定</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-6">
+                        <div class="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-ticket-alt text-2xl text-accent"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2">Fee</h4>
+                            <p class="text-4xl font-bold text-accent mb-2">¥7,000</p>
+                            <p class="text-sm text-gray-600">セミナー受講料＋懇親会飲食代込み</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-6">
+                        <div class="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-map-marker-alt text-2xl text-accent"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-2">Venue</h4>
+                            <p class="text-gray-700 font-medium">TOKYO L.O.C.A.L BASE</p>
+                            <p class="text-sm text-gray-600">東京都荒川区町屋1-3-12</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Placeholder -->
+                <div class="rounded-2xl overflow-hidden h-96 bg-gray-100 flex items-center justify-center">
+                    <div class="text-center text-gray-400">
+                        <i class="fas fa-map text-5xl mb-4"></i>
+                        <p class="text-lg">Google Map</p>
+                        <p class="text-sm">(荒川区町屋1-3-12)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA - RESERVATION -->
+    <section id="reservation" class="py-32 px-6 relative overflow-hidden"
+        style="background: linear-gradient(135deg, #C5A086 0%, #D4AF37 100%);">
+        <div class="max-w-4xl mx-auto text-center text-white fade-in-up">
+            <p class="font-cormorant italic text-4xl mb-8">Join Us</p>
+            <h2 class="text-3xl md:text-5xl font-mincho font-bold mb-12 leading-tight">
+                組織の悩みは一人で抱え込まないでください。<br>
+                この日、重荷を下ろしましょう。
+            </h2>
+            <p class="text-xl mb-12 opacity-90 leading-relaxed max-w-2xl mx-auto">
+                「何度言っても伝わらない」「良かれと思ったことが裏目に出る」<br>
+                そんな悩みから、ようやく解放される場所がここにあります。
+            </p>
+
+            <a href="#" class="cta-button-outline btn-shine inline-block px-12 py-5 rounded-full text-xl font-medium">
+                今すぐ席を確保する <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+            <p class="text-sm mt-8 opacity-75">※ 定員に達し次第、受付終了</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-100 py-12 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="font-cormorant italic text-2xl text-accent">
+                    Secret Lounge
+                </div>
+                <nav class="flex gap-8 text-sm text-gray-600">
+                    <a href="#" class="hover:text-accent transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-accent transition-colors">Terms</a>
+                    <a href="#" class="hover:text-accent transition-colors">Contact</a>
+                </nav>
+            </div>
+            <div class="text-center mt-8 text-sm text-gray-400">
+                &copy; 2026 店舗経営者の秘密の部屋. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Intersection Observer Script -->
+    <script>
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in-up elements
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add delay to sequential elements
+        document.querySelectorAll('.fade-in-up').forEach((el, index) => {
+            el.style.transitionDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+
+</html>
