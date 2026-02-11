@@ -210,6 +210,19 @@
             animation: typing 2s steps(40) forwards;
             display: inline-block;
         }
+
+        /* Hide scrollbar for horizontal scroll */
+        .hide-scrollbar {
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE and Edge */
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, Opera */
+        }
     </style>
 </head>
 
@@ -548,6 +561,80 @@
         </div>
     </section>
 
+    <!-- Participants Section - MEMBERS -->
+    <section class="py-32 bg-nuance relative overflow-hidden">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20 px-6 fade-in-up">
+                <p class="font-cormorant italic text-3xl text-accent mb-6">Participants</p>
+                <h2 class="text-3xl md:text-4xl font-mincho font-bold mb-6">
+                    参加確定の経営者様
+                </h2>
+                <p class="text-lg text-gray-600">どんな人が来るのか。同じ志を持つ仲間と繋がる場。</p>
+            </div>
+
+            <!-- Horizontal Scroll Container -->
+            <div class="relative fade-in-up">
+                <!-- Scroll wrapper with padding for mobile -->
+                <div class="overflow-x-auto pb-6 px-6 md:px-0 hide-scrollbar"
+                    style="-webkit-overflow-scrolling: touch;">
+                    <div class="flex md:grid md:grid-cols-4 gap-6 md:gap-8" style="min-width: min-content;">
+                        <!-- Participant 1 -->
+                        <div
+                            class="glass-card rounded-2xl overflow-hidden group hover:shadow-2xl transition-all duration-300 flex-shrink-0 w-64 md:w-auto">
+                            <div class="overflow-hidden rounded-t-2xl">
+                                <img src="participant1.png" alt="山田 花子"
+                                    class="w-full object-cover aspect-[3/4] group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <div class="p-6 text-center">
+                                <p class="text-sm text-accent mb-2 font-medium">美容室オーナー</p>
+                                <h4 class="font-mincho font-bold text-lg">山田 花子 様</h4>
+                            </div>
+                        </div>
+
+                        <!-- Participant 2 -->
+                        <div
+                            class="glass-card rounded-2xl overflow-hidden group hover:shadow-2xl transition-all duration-300 flex-shrink-0 w-64 md:w-auto">
+                            <div class="overflow-hidden rounded-t-2xl">
+                                <img src="participant2.jpg" alt="鈴木 優子"
+                                    class="w-full object-cover aspect-[3/4] group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <div class="p-6 text-center">
+                                <p class="text-sm text-accent mb-2 font-medium">エステサロン経営</p>
+                                <h4 class="font-mincho font-bold text-lg">鈴木 優子 様</h4>
+                            </div>
+                        </div>
+
+                        <!-- Participant 3 -->
+                        <div
+                            class="glass-card rounded-2xl overflow-hidden group hover:shadow-2xl transition-all duration-300 flex-shrink-0 w-64 md:w-auto">
+                            <div class="overflow-hidden rounded-t-2xl">
+                                <img src="participant3.png" alt="佐藤 健一"
+                                    class="w-full object-cover aspect-[3/4] group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <div class="p-6 text-center">
+                                <p class="text-sm text-accent mb-2 font-medium">クリニック院長</p>
+                                <h4 class="font-mincho font-bold text-lg">佐藤 健一 様</h4>
+                            </div>
+                        </div>
+
+                        <!-- Participant 4 -->
+                        <div
+                            class="glass-card rounded-2xl overflow-hidden group hover:shadow-2xl transition-all duration-300 flex-shrink-0 w-64 md:w-auto">
+                            <div class="overflow-hidden rounded-t-2xl">
+                                <img src="participant1.png" alt="高橋 美咲"
+                                    class="w-full object-cover aspect-[3/4] group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <div class="p-6 text-center">
+                                <p class="text-sm text-accent mb-2 font-medium">ネイルサロン代表</p>
+                                <h4 class="font-mincho font-bold text-lg">高橋 美咲 様</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Access Section - INFORMATION -->
     <section id="access" class="py-32 px-6 relative overflow-hidden">
 
@@ -566,7 +653,8 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-lg mb-2">Date</h4>
-                            <p class="text-gray-700">2026年3月31日（月）</p>
+                            <p class="text-gray-700">2026年3月31日(月)</p>
+                            <p class="text-sm text-gray-600 mt-2">会場17時～　懇親会19時～</p>
                         </div>
                     </div>
 
